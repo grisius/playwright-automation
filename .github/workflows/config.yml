@@ -12,7 +12,7 @@ jobs:
       - name: Checkout (copy) gh-pages repository to GitHub runner
         uses: actions/checkout@v5
         with:
-          def: gh-pages
+          ref: gh-pages
           path: ./.github/gh-pages
       
       - name: Run UI-tests via docker-compose
