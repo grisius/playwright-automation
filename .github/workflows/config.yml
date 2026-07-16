@@ -22,17 +22,10 @@ jobs:
         run: |
           docker compose up --exit-code-from regression || true
       
-      - name: Copy history from gh-pages to allure-results
-        run: |
-          # sudo mkdir -p allure-results/history # Создает директорию для истории Allure
-          # sudo cp -R ./.github/gh-pages/history/* allure-results/history/
-
-          sudo mkdir -p allure-results/history
-          if [ -d "./.github/gh-pages/history" ] && [ "$(sudo ls -A ./.github/gh-pages/history 2>/dev/null)" ]; then
-            sudo cp -R ./.github/gh-pages/history/* allure-results/history/
-          else
-            echo "Previous Allure story not found, skipping copying."
-          fi
+      # - name: Copy history from gh-pages to allure-results
+      #   run: |
+      #     sudo mkdir -p allure-results/history # Создает директорию для истории Allure
+      #     sudo cp -R ./.github/gh-pages/history/* allure-results/history/
       
       - name: Generate Allure report
         run: |
